@@ -4,17 +4,17 @@ defaultContentLanguage: en
 title: Hugo Learn Documentation
 theme: hugo-theme-learn
 metaDataFormat: yaml
-defaultContentLanguageInSubdir: yes
+defaultContentLanguageInSubdir: no
 params:
   author: Mathieu Cornic
   customMermaidURL: https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js
   description: Documentation for Hugo Learn Theme
   disableBreadcrumb: no
-  disableLandingPageButton: yes
+  disableLandingPageButton: no
   disableMermaid: no
   disableNextPrev: no
   editURL: https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/
-  showVisitedLinks: yes
+  showVisitedLinks: no
   titleSeparator: '::'
 outputs:
   home:
@@ -23,68 +23,19 @@ outputs:
     - JSON
 Languages:
   en:
-    landingPageName: <i class='fas fa-home'></i> Home
-    landingPageURL: /en
+    landingPageName: <i class='fas fa-home'></i> Main Site
+    landingPageURL: https://thomasjwise.com/ 
     languageName: English
     menu:
       shortcuts:
         - identifier: ds
-          name: <i class='fab fa-fw fa-github'></i> GitHub repo
+          name: <i class='fab fa-fw fa-github'></i> Learn Theme - GitHub repo
           url: https://github.com/matcornic/hugo-theme-learn
           weight: 10
-        - name: <i class='fas fa-fw fa-camera'></i> Showcases
-          url: showcase
-          weight: 11
         - identifier: hugodoc
-          name: <i class='fas fa-fw fa-bookmark'></i> Hugo Documentation
+          name: <i class='fas fa-fw fa-bookmark'></i> Learn Theme - Hugo Documentation
           url: https://gohugo.io/
           weight: 20
-        - name: <i class='fas fa-fw fa-bullhorn'></i> Credits
+        - name: <i class='fas fa-fw fa-bullhorn'></i> Learn Theme - Credits
           url: /credits
           weight: 30
-    title: Documentation for Hugo Learn Theme
-    weight: 1
-  fr:
-    landingPageName: <i class='fas fa-home'></i> Accueil
-    landingPageURL: /fr
-    languageName: Français
-    menu:
-      shortcuts:
-        - identifier: ds
-          name: <i class='fab fa-fw fa-github'></i> Repo GitHub
-          url: https://github.com/matcornic/hugo-theme-learn
-          weight: 10
-        - name: <i class='fas fa-fw fa-camera'></i> Vitrine
-          url: /showcase
-          weight: 11
-        - identifier: hugodoc
-          name: <i class='fas fa-fw fa-bookmark'></i> Documentation Hugo
-          url: https://gohugo.io/
-          weight: 20
-        - name: <i class='fas fa-fw fa-bullhorn'></i> Crédits
-          url: /credits
-          weight: 30
-    title: Documentation du thème Hugo Learn
-    weight: 2
-  zh:
-    landingPageName: <i class='fas fa-home'></i> 家
-    landingPageURL: /zh
-    languageName: 简体中文
-    menu:
-      shortcuts:
-        - identifier: ds
-          name: <i class='fab fa-fw fa-github'></i> GitHub 仓库
-          url: https://github.com/matcornic/hugo-theme-learn
-          weight: 10
-        - name: <i class='fas fa-fw fa-camera'></i> 展示区
-          url: /showcase
-          weight: 11
-        - identifier: hugodoc
-          name: <i class='fas fa-fw fa-bookmark'></i> Hugo 文档
-          url: https://gohugo.io/
-          weight: 20
-        - name: <i class='fas fa-fw fa-bullhorn'></i> 鸣谢
-          url: /credits
-          weight: 30
-    title: Hugo 主题的 Learn 文档
-    weight: 3
