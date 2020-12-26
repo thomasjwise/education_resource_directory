@@ -1,22 +1,31 @@
 ---
-title: Resources
-weight: 30
+title: Session Setup
+weight: 10
 ---
 
-## Download this content: 
+## Before the Session 
 
-* [Github Repo](<>)
+* Ensure [R](<https://www.r-project.org/>)/[Rstudio](<https://rstudio.com/>) is installed and ready to use, on your machine. Or create a virtual session via [RStudio Cloud](<https://rstudio.cloud/>)
+* Either open up a blank R script, or download and open a copy of the worksheet from the [Github Repo](<>). 
+* Ensure the following *R Packages* are correctly installed and loaded on your machine, using the following code. 
 
-## Want to Learn More? 
+```r
 
-### Suggested Reading/Websites/Inspiration: 
+## Install Packages 
+  install.packages("tidyverse")
+  install.packages("RColorBrewer")
+  install.packages("ghibli")
+  install.packages("palettetown")
 
-* [R for Data Science](<https://r4ds.had.co.nz/>)
-* [Danielle Navarro](<https://art.djnavarro.net/>)
-* [Fronkonstin - Experiments in R](<https://fronkonstin.com/2018/09/06/tweetable-mathematical-art-with-r/>)
-* [Marcusvolz - Mathart](<https://github.com/marcusvolz/mathart>)
-* [Tiny Art with R](<https://alinastepanova.medium.com/tiny-art-with-r-d6d93d110619>)
+## Load Packages 
+  library(tidyverse)
+  library(RColorBrewer)
+  library(ghibli)
+  library(palettetown)
 
-### Check out my content:
+```
 
-* [Data Viz for Business](<https://edu-resource.thomasjwise.com/dataviz_research/>)
+## Additional Note: 
+
+* For those following this workshop via a company, please follow your specific company policy on accessing R & Rstudio. 
+* These will be provided by your organisation. 

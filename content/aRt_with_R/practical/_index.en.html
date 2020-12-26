@@ -1,0 +1,66 @@
+---
+title: "Practical Worksheet"
+menutitle: "Practical"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 30
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<hr />
+<p><font size = 4>
+<strong>Package Loading</strong></p>
+<p><br></p>
+<p>As mentioned within the session setup, load the following packages using the <code>library()</code> function.</p>
+<pre class="r"><code>  library(tidyverse)
+  library(RColorBrewer)
+  library(ghibli)
+  library(palettetown)</code></pre>
+<hr />
+<p><font size = 4>
+<strong>Introduction</strong></p>
+<p><br></p>
+<p><strong>Example Plot:</strong></p>
+<p><br></p>
+<p>To give you an example of how to generally plot in R, using <code>ggplot2</code>, we can examine the <code>diamonds</code> data set. This is an extremely common example, but is useful to understand how to structure of how to plot.</p>
+<pre class="r"><code># Chunk 1
+  ggplot(data = diamonds,
+         mapping = aes(x = price,
+                       y = carat, 
+                       colour = cut)) + 
+# Chunk 2
+  geom_point() + 
+# Chunk 3
+  labs(title = &quot;Diamonds Plot Example&quot;, 
+       x = &quot;Price&quot;, 
+       y = &quot;Carat&quot;)</code></pre>
+<p><img src="/aRt_with_R/practical/_index.en_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><br></p>
+<p>We can break down the code for this plot into three Chunks.</p>
+<ul>
+<li>Chunk 1: <code>ggplot()</code> function, this is the core part of any visualization function, and typically contains information such as specification of the data to be used, and the mapping aesthetics. These details however can also be included within Chunk 2.</li>
+<li>Chunk 2: <code>geom</code> specification, details which type of plot you would like to plot. In this case, we are plotting a point chart, or scatter plot.</li>
+<li>Chunk 3: Additional Details, such as <code>labs()</code>. In this case, specifying the labels which should be included alongside your plot.</li>
+</ul>
+<p>These three components (that is the ggplot function, the geom specification and additional details) are core components of any data visualization. And can be summed up also in the diagram below.</p>
+<p><br></p>
+<p><img src="images/ggplot_graphs.jpg" /></p>
+<p><br></p>
+<p>Alternatively, this code can be written as so, and produce the same results.</p>
+<pre class="r"><code># Chunk 1
+  ggplot() + 
+# Chunk 2
+  geom_point(data = diamonds,
+         mapping = aes(x = price,
+                       y = carat, 
+                       colour = cut)) + 
+# Chunk 3
+  labs(title = &quot;Diamonds Plot Example&quot;, 
+       x = &quot;Price&quot;, 
+       y = &quot;Carat&quot;)</code></pre>
+<p><img src="/aRt_with_R/practical/_index.en_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><br></p>

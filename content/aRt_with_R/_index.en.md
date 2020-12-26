@@ -9,6 +9,8 @@ First created in August 2020, for the [Office for National Statistics](<https://
 
 As of November 2020, this workshop was reduced to 90 minutes, to which the slides have been provided. However the practical is aimed to be self-guided and can take as long as is required. 
 
+---
+
 ## Session Objectives
 
 * To be introducted to the R Universe, in particular the [tidyverse](<https://www.tidyverse.org/>) and [ggplot2](<https://ggplot2.tidyverse.org/>). 
@@ -21,3 +23,14 @@ As of November 2020, this workshop was reduced to 90 minutes, to which the slide
 * Basic introduction to the use of R and the [tidyverse](<https://www.tidyverse.org/>).
 * Basic visualisation techniques using [ggplot2](<https://ggplot2.tidyverse.org/>).
 * Creative Problem solving and debugging.
+
+---
+
+## Why Creativity? 
+
+When considering any programming languages (R or Python), there may feel like a lack of room for creativity, that is to say little or no room for a creative process to take place. Since the procedures which take place, exist within a black-box, where input is fed in, producing a specific output each time. Although this idea is largely true, I would argue that this does not prevent us from thinking, designing and generating creative outputs from these procedural techniques rather means we must behave differently to achieve them.
+
+
+
+Some of my personal favorite art work in this area comes from the cognitive scientist [Danielle Navarro](<https://art.djnavarro.net/>), who uses a mixture of R and C++ to generate her work. 
+
