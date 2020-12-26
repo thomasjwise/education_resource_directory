@@ -1,6 +1,6 @@
 ---
 title: Resources
-weight: 30
+weight: 40
 ---
 
 ## Download this content: 

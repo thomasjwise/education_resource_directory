@@ -1,0 +1,141 @@
+---
+title: "Learning Material"
+menutitle: "Learning Material"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 20
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<hr />
+<p><font size = 4>
+<strong>Package Loading</strong></p>
+<p><br></p>
+<p>As mentioned within the session setup, load the following packages using the <code>library()</code> function.</p>
+<pre class="r"><code>  library(tidyverse)
+  library(RColorBrewer)
+  library(ghibli)
+  library(palettetown)</code></pre>
+<hr />
+<p><font size = 4>
+<strong>Introduction</strong></p>
+<p><br></p>
+<p><strong>Example Plot:</strong></p>
+<p><br></p>
+<p>To give you an example of how to generally plot in R, using <code>ggplot2</code>, we can examine the <a href="https://ggplot2.tidyverse.org/reference/diamonds.html">diamonds</a> data set. This is an extremely common example, but is useful to understand how to structure of how to plot.</p>
+<pre class="r"><code># Chunk 1
+  ggplot(data = diamonds,
+         mapping = aes(x = price,
+                       y = carat, 
+                       colour = cut)) + 
+# Chunk 2
+  geom_point() + 
+# Chunk 3
+  labs(title = &quot;Diamonds Plot Example&quot;, 
+       x = &quot;Price&quot;, 
+       y = &quot;Carat&quot;)</code></pre>
+<p><img src="/aRt_with_R/learning_materials/_index.en_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><br></p>
+<p>We can break down the code for this plot into three Chunks.</p>
+<ul>
+<li>Chunk 1: <code>ggplot()</code> function, this is the core part of any visualization function, and typically contains information such as specification of the data to be used, and the mapping aesthetics. These details however can also be included within Chunk 2.</li>
+<li>Chunk 2: <code>geom</code> specification, details which type of plot you would like to plot. In this case, we are plotting a point chart, or scatter plot.</li>
+<li>Chunk 3: Additional Details, such as <code>labs()</code>. In this case, specifying the labels which should be included alongside your plot.</li>
+</ul>
+<p>These three components (that is the ggplot function, the geom specification and additional details) are core components of any data visualization. And can be summed up also in the diagram below.</p>
+<p><br></p>
+<p><img src="images/ggplot_graphs.jpg" /></p>
+<p><br></p>
+<p>Alternatively, this code can be written as so, and produce the same results.</p>
+<pre class="r"><code># Chunk 1
+  ggplot() + 
+# Chunk 2
+  geom_point(data = diamonds,
+         mapping = aes(x = price,
+                       y = carat, 
+                       colour = cut)) + 
+# Chunk 3
+  labs(title = &quot;Diamonds Plot Example&quot;, 
+       x = &quot;Price&quot;, 
+       y = &quot;Carat&quot;)</code></pre>
+<p><br></p>
+<p>Understanding that there are multiple methods of achieving the same result is incredibly important, especially during programming in R.</p>
+<hr />
+<p><font size = 4>
+<strong>Layered Coding</strong></p>
+<p><br></p>
+<p>As you can see, these visualizations are made up of lots of smaller components. These changeable aspects include:</p>
+<p><br></p>
+<p><strong>geom functions</strong></p>
+<ul>
+<li><code>geom_line()</code> - line charts</li>
+<li><code>geom_point()</code> - scatter plots</li>
+<li><code>geom_polygon()</code> - shape diagrams</li>
+</ul>
+<p><strong>Aesthetic Descriptors</strong>
+These are used within the function, <code>aes = mapping()</code></p>
+<ul>
+<li><em>Fill =</em> - inside/fill colour</li>
+<li><em>Colour =</em> - Border colour</li>
+<li><em>Alpha =</em> - Transparency Level (0 -&gt; 1)</li>
+<li><em>Linetype =</em> - Line Type / Border Type</li>
+<li><em>Size =</em> - Border thickness / Point Size</li>
+<li><em>Shape =</em> - Point Shape</li>
+</ul>
+<p><strong>Themes</strong></p>
+<ul>
+<li><code>theme()</code> - base theme</li>
+<li><code>theme_bw()</code> - black and white theme</li>
+<li><code>theme_void()</code> - empty theme (no scales, legends etc)</li>
+<li><code>theme_minimal()</code> - minimal theme</li>
+</ul>
+<p><strong>Scales</strong></p>
+<ul>
+<li><code>labs()</code>, <code>xlab()</code>, <code>ylab()</code>, <code>ggtitle()</code> - Labels</li>
+<li><code>lims()</code>, <code>xlim()</code>, <code>ylim()</code> - Scale Limits</li>
+<li><code>scale_x_log10()</code>, <code>scale_y_log10()</code> - Log Scales</li>
+</ul>
+<p><strong>Coordinate Systems</strong></p>
+<ul>
+<li><code>coord_cartesian()</code> - Cartesian Coordinate System</li>
+<li><code>coord_polar()</code> - Polar Coordinate System</li>
+</ul>
+<hr />
+<p><font size = 4>
+<strong>Understanding Polar Coordinates</strong></p>
+<p><br></p>
+<ul>
+<li><p>Coordinates on the x-axis indicate the circular movement.</p></li>
+<li><p>Coordinates on the y-axis indicate the distance of the points from the origin.</p></li>
+<li><p>The origin of the plot is defined as the centre of the plot</p></li>
+<li><p>The plot begins and ends at the top of the plot (before rotating right)</p></li>
+</ul>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Incorporating colour</strong></p>
+<p><br></p>
+<p>When it comes to applying colour to the plots you produce, there again are multiple ways in which these can be defined. This includes:</p>
+<p><strong>Base R:</strong></p>
+<ul>
+<li>Blue: <code>"blue"</code></li>
+<li>Red: <code>"red"</code></li>
+</ul>
+<p><strong>Hex/RGB Code:</strong></p>
+<ul>
+<li>Blue: #0074D9</li>
+<li>Red: #FF4136</li>
+</ul>
+<p><strong>Palettes from R Packages</strong></p>
+<ul>
+<li>RColorBrewer</li>
+<li>ghibli (colours inspired by Studio Ghibli Films)</li>
+<li>palettetown (colour inspired by pokemon)</li>
+</ul>
+<hr />
+<p><font size = 4>
+<strong>Practical Exercises</strong></p>

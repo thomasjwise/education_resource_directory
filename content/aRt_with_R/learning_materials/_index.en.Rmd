@@ -1,0 +1,189 @@
+---
+title: "Learning Material"
+menutitle: "Learning Material"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 20
+---
+---
+
+<font size = 4> 
+**Introduction**  
+
+<br>
+ 
+**Example Plot:**  
+
+<br>
+
+To give you an example of how to generally plot in R, using `ggplot2`, we can examine the [diamonds](<https://ggplot2.tidyverse.org/reference/diamonds.html>) data set. This is an extremely common example, but is useful to understand how to structure of how to plot. 
+
+```{r}
+# Chunk 1
+  ggplot(data = diamonds,
+         mapping = aes(x = price,
+                       y = carat, 
+                       colour = cut)) + 
+# Chunk 2
+  geom_point() + 
+# Chunk 3
+  labs(title = "Diamonds Plot Example", 
+       x = "Price", 
+       y = "Carat")
+
+```
+
+<br>
+
+We can break down the code for this plot into three Chunks.  
+
+* Chunk 1: `ggplot()` function, this is the core part of any visualization function, and typically contains information such as specification of the data to be used, and the mapping aesthetics. These details however can also be included within Chunk 2. 
+* Chunk 2: `geom` specification, details which type of plot you would like to plot. In this case, we are plotting a point chart, or scatter plot. 
+* Chunk 3: Additional Details, such as `labs()`. In this case, specifying the labels which should be included alongside your plot. 
+
+These three components (that is the ggplot function, the geom specification and additional details) are core components of any data visualization. And can be summed up also in the diagram below. 
+
+<br> 
+
+![](images/ggplot_graphs.jpg)
+
+<br> 
+
+Alternatively, this code can be written as so, and produce the same results. 
+
+```{r, eval = FALSE}
+# Chunk 1
+  ggplot() + 
+# Chunk 2
+  geom_point(data = diamonds,
+         mapping = aes(x = price,
+                       y = carat, 
+                       colour = cut)) + 
+# Chunk 3
+  labs(title = "Diamonds Plot Example", 
+       x = "Price", 
+       y = "Carat")
+
+```
+
+<br> 
+
+Understanding that there are multiple methods of achieving the same result is incredibly important, especially during programming in R. 
+
+----
+
+<font size = 4> 
+**Layered Coding**
+
+<br> 
+
+As you can see, these visualizations are made up of lots of smaller components. These changeable aspects include: 
+
+<br> 
+
+**geom functions**
+
+* `geom_line()` - line charts 
+* `geom_point()` - scatter plots 
+* `geom_polygon()` - shape diagrams 
+
+**Aesthetic Descriptors**
+These are used within the function, `aes = mapping()`
+
+* *Fill =* - inside/fill colour
+* *Colour =* - Border colour 
+* *Alpha =* - Transparency Level (0 -> 1)
+* *Linetype =* - Line Type / Border Type
+* *Size =* - Border thickness / Point Size 
+* *Shape =* - Point Shape 
+
+**Themes**
+
+* `theme()` - base theme
+* `theme_bw()` - black and white theme 
+* `theme_void()` - empty theme (no scales, legends etc)
+* `theme_minimal()` - minimal theme
+
+**Scales** 
+
+* `labs()`, `xlab()`, `ylab()`, `ggtitle()` - Labels 
+* `lims()`, `xlim()`, `ylim()` - Scale Limits 
+* `scale_x_log10()`, `scale_y_log10()` - Log Scales
+
+**Coordinate Systems** 
+
+* `coord_cartesian()` - Cartesian Coordinate System
+* `coord_polar()` - Polar Coordinate System
+
+---
+
+<font size = 4> 
+**Understanding Polar Coordinates**
+
+<br> 
+
+* Coordinates on the x-axis indicate the circular movement.
+* Coordinates on the y-axis indicate the distance of the points from the origin.
+
+* The origin of the plot is defined as the centre of the plot
+* The plot begins and ends at the top of the plot (before rotating right)
+
+<br>
+
+--- 
+
+<font size = 4> 
+**Incorporating colour** 
+
+<br> 
+
+When it comes to applying colour to the plots you produce, there again are multiple ways in which these can be defined. This includes: 
+
+**Base R:**
+
+* Blue: `"blue"`
+* Red: `"red"`
+
+**Hex/RGB Code:**
+
+* Blue: #0074D9
+* Red: #FF4136
+
+**Palettes from R Packages**
+
+* RColorBrewer
+* ghibli (colours inspired by Studio Ghibli Films)
+* palettetown (colour inspired by pokemon)
+
+
+---
+
+<font size = 4> 
+**Mathematical Functions in R**
+
+For the purpose of this practical, we will only call a select few standardized mathematical functions to help generate our sequences. Below are a list of some of those we will use, and some which I encourage you to explore further. 
+
+**Trigonometric functions**
+
+* Sine, `sin()`
+* Cosine, `cos()`
+* Tangent, `tan()`
+
+**Logarithmic and Exponential Functions**
+
+* Log base 2, `log2()`
+* Log base 10, `log10()`
+* Log base y (user defined), `log(x, base = y)`
+* Exponential (e to the power of x), `exp()`
+
+**Traditional Functions**
+
+* Linear Functions, Index = x,
+* Quadratic Functions, Index = $x^2$, `x ^ 2`
+* Polynomial Functions, Index = $x^n$,  `x ^ n`
+
+---
+
+
+
