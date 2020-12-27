@@ -3,9 +3,6 @@ title: aRt with R
 weight: 10
 ---
 
-<font size = 4>
-[Access the Github](<https://github.com/thomasjwise/aRt_with_R>)
-
 ## Introduction 
 
 First created in August 2020, for the [Office for National Statistics](<https://www.ons.gov.uk/>), for use in their protected learning within the Economic Statistics Group (ESG). The aim of this workshop and teaching resources is to provide a creative, procedural and non-code or mathematically heavy introduction to data visualisation within R, through the production of artistic designs. This is design to provide a positive introduction to data visualisation without extensive previous knowledge of mathematics (beyond high school), programming (in R) or data visualisation. Whilst providing plenty or structured room for exploration and experimentation. 
