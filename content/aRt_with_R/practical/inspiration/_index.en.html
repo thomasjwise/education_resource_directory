@@ -1,0 +1,369 @@
+---
+title: "Inspiration"
+menutitle: "Inspiration"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 25
+---
+
+
+
+<hr />
+<p><strong>Basic Abstract Spiral</strong></p>
+<p><br></p>
+<pre class="r"><code>  ## Data 
+  ab.seq &lt;- as.data.frame(seq(from = 1,
+                              to = 100, 
+                              by = 1))
+  
+  ab.seq$V1 &lt;- rep(0, times = 100)
+  
+  colnames(ab.seq) &lt;- c(&quot;ab&quot;, &quot;V1&quot;)
+
+  ## Plot
+  ggplot() + 
+    geom_polygon(data = (ab.seq + 250), mapping = aes(x = 1:100, y = V1),
+                 alpha = 0.5) +
+    
+    geom_point(data = (ab.seq - 150), mapping = aes(x = 1:100, y = ab)) +
+    geom_point(data = (ab.seq - 100), mapping = aes(x = 1:100, y = ab)) +
+    geom_point(data = (ab.seq - 50), mapping = aes(x = 1:100, y = ab)) + 
+    geom_point(data = (ab.seq), mapping = aes(x = 1:100, y = ab)) +
+    geom_point(data = (ab.seq + 50), mapping = aes(x = 1:100, y = ab)) +
+    geom_point(data = (ab.seq + 100), mapping = aes(x = 1:100, y = ab)) +
+    geom_point(data = (ab.seq + 150), mapping = aes(x = 1:100, y = ab)) +
+    ylim(-100, 250) +  
+    theme_void() +
+    coord_polar()</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><br></p>
+<hr />
+<p><strong>Colourful Spiral V1</strong></p>
+<p><br></p>
+<pre class="r"><code>## Data 
+  ab.seq.2 &lt;- as.data.frame(seq(from = 0,
+                                to = 99.99,
+                                by = 0.01))
+  
+  ab.seq.2$ab2 &lt;- seq(from = 99.99,
+                      to = 0,
+                      by = -0.01)
+  
+  ab.seq.2$col &lt;- rep(seq(from = 1, 
+                          to = 5, 
+                          by = 1))
+  
+  ab.seq.2$V1 &lt;- rep(0, time = 10000)
+  
+  colnames(ab.seq.2) &lt;- c(&quot;ab&quot;, &quot;ab2&quot;, &quot;col&quot;, &quot;V1&quot;)
+  
+  ggplot() + 
+    geom_polygon(data = (ab.seq.2 + 200), 
+                 mapping = aes(x = 1:10000, y = (V1)), fill = &quot;grey&quot;) +
+    
+    geom_point(data = (ab.seq.2 - 100),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 - 50),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 50),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 100),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 150),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 200),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    
+    geom_point(data = (ab.seq.2 - 75),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 - 25),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 25),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 75),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 125),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 175),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    
+    ylim(0, 200) + xlim(0, 10000) + 
+    theme_void() +
+    theme(legend.position = &quot;none&quot;) + 
+    coord_polar()</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><br></p>
+<hr />
+<p><strong>Colourful Spiral V2</strong></p>
+<p><br></p>
+<pre class="r"><code>## Data 
+  ab.seq.2 &lt;- as.data.frame(seq(from = 0,
+                                to = 99.99,
+                                by = 0.01))
+  
+  ab.seq.2$ab2 &lt;- seq(from = 99.99,
+                      to = 0,
+                      by = -0.01)
+  
+  ab.seq.2$col &lt;- (rep(seq(from = 1, 
+                          to = 5, 
+                          by = 1)))
+  
+  ab.seq.2$V1 &lt;- rep(0, time = 10000)
+  
+  colnames(ab.seq.2) &lt;- c(&quot;ab&quot;, &quot;ab2&quot;, &quot;col&quot;, &quot;V1&quot;)
+  
+  ggplot() + 
+    geom_polygon(data = (ab.seq.2 + 200), 
+                 mapping = aes(x = 1:10000, y = (V1)), fill = &quot;lightblue&quot;) +
+    
+    geom_point(data = (ab.seq.2 - 100),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 - 50),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 50),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 100),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 150),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 200),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) +
+    
+    geom_point(data = (ab.seq.2 - 75),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 - 25),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 25),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 75),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 125),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+    geom_point(data = (ab.seq.2 + 175),
+               mapping = aes(x = 1:10000, y = ab, colour = ab)) + 
+   
+    scale_colour_gradient(
+      low = &quot;purple&quot;, high = &quot;lightblue&quot;) + 
+    
+    ylim(0, 200) + xlim(0, 10000) + 
+    theme_void() +
+    theme(legend.position = &quot;none&quot;) + 
+    coord_polar()</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><br></p>
+<hr />
+<p><strong>Sin Celtic Circlular Weave</strong></p>
+<p><br></p>
+<pre class="r"><code>fs.seq &lt;- as.data.frame(seq(from = 1,
+                              to = 51.3, 
+                              by = 0.25))
+  
+  fs.seq$alpha &lt;- rep(0, times = 202)
+  
+  colnames(fs.seq) &lt;- c(&quot;fs&quot;, &quot;alpha&quot;)
+  
+  ggplot() + 
+    geom_polygon(data = fs.seq, 
+                 mapping = aes(x = 1:202, y = (alpha - 2))) + 
+    geom_polygon(data = fs.seq, 
+                 mapping = aes(x = 1:202, y = (alpha + 2)), alpha = 0.2) + 
+    geom_polygon(data = fs.seq, 
+                 mapping = aes(x = 1:202, y = (alpha + 4)), alpha = 0.2) +
+    
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (sin(fs) - 3))) + 
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (-sin(fs) - 3))) + 
+    
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = sin(fs))) + 
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = -sin(fs))) + 
+    
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (sin(fs) + 3))) + 
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (-sin(fs) + 3))) + 
+    
+    ylim(-10, 10) + 
+    theme_void() + 
+    coord_polar() </code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><br></p>
+<hr />
+<p><strong>Colourful cos Celtic Circlular Weave</strong></p>
+<p><br></p>
+<pre class="r"><code>fs.seq &lt;- as.data.frame(seq(from = 1,
+                              to = 51.3, 
+                              by = 0.25))
+  
+  fs.seq$alpha &lt;- rep(0, times = 202)
+  
+  colnames(fs.seq) &lt;- c(&quot;fs&quot;, &quot;alpha&quot;)
+  
+  ggplot() + 
+    geom_polygon(data = fs.seq, 
+                 mapping = aes(x = 1:202, y = (alpha - 2)), 
+                 alpha = 0.2, fill = &quot;purple&quot;) + 
+    geom_polygon(data = fs.seq, 
+                 mapping = aes(x = 1:202, y = (alpha + 2)), 
+                 alpha = 0.2, fill = &quot;purple&quot;) + 
+    geom_polygon(data = fs.seq, 
+                 mapping = aes(x = 1:202, y = (alpha + 4)), 
+                 alpha = 0.2, fill = &quot;purple&quot;) +
+    
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = ((cos(fs)-7))),
+               alpha = 0.8, colour = &quot;blue&quot;) + 
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = ((-cos(fs)-7))),
+               alpha = 0.8, colour = &quot;red&quot;) + 
+    
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (cos(fs) - 3)),
+               alpha = 0.8, colour = &quot;blue&quot;) + 
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (-cos(fs) - 3)),
+               alpha = 0.8, colour = &quot;red&quot;) + 
+    
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = cos(fs)),
+               alpha = 0.5, colour = &quot;blue&quot;) + 
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = -cos(fs)),
+               alpha = 0.5, colour = &quot;red&quot;) + 
+    
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (cos(fs) + 3)),
+               alpha = 0.2, colour = &quot;blue&quot;) + 
+    geom_point(data = fs.seq, 
+               mapping = aes(x = 1:202, y = (-cos(fs) + 3)),
+               alpha = 0.2, colour = &quot;red&quot;) + 
+    
+    ylim(-10, 10) + 
+    theme_void() + 
+    coord_polar()</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><br></p>
+<hr />
+<p><strong>Square Weaves</strong></p>
+<p><br></p>
+<pre class="r"><code>kw.seq &lt;- (seq(from = -10, 
+                 to = 10,
+                 by = 0.05)) %&gt;%
+    expand.grid(x = ., y = .)
+
+## Celtic Square Weave
+
+ggplot() + 
+    geom_point(data = kw.seq, 
+              mapping = aes(x = (x + sin(y)), y = (y + cos(x))), 
+              alpha = 0.01, colour = &quot;white&quot;) + 
+    coord_fixed() + 
+    theme_void() + 
+    theme(panel.background = element_rect(fill = &quot;orange&quot;))</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>## Wave Weave
+
+  ggplot() + 
+    geom_point(data = kw.seq, 
+               mapping = aes(x = ((x*x) + sin(y)), y = ((y*y) + cos(x))), 
+               alpha = 0.01, colour = &quot;white&quot;) + 
+    coord_fixed() + 
+    theme_void() + 
+    theme(panel.background = element_rect(fill = &quot;blue&quot;))</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre class="r"><code>  ## Multiple Square Panel Weave
+  ggplot() + 
+    geom_point(data = kw.seq, 
+               mapping = aes(x = (sin(x) + cos(x)), y = (sin(y) + cos(y))), 
+               alpha = 0.02, colour = &quot;white&quot;) + 
+    geom_point(data = kw.seq, 
+               mapping = aes(x = (sin(x) + cos(x) - 2), y = (sin(y) + cos(y) - 2)), 
+               alpha = 0.02, colour = &quot;blue&quot;) +
+    coord_fixed() + 
+    theme_void() + 
+    theme(panel.background = element_rect(fill = &quot;green&quot;))</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<pre class="r"><code>  ## Square tan Weave
+  ggplot() + 
+    geom_point(data = kw.seq, 
+               mapping = aes(x = (2*x + tan(y)), y = (2*y + tan(x))), 
+               alpha = 0.02, colour = &quot;white&quot;) + 
+    ylim(-50, 50) + xlim(-50, 50) +
+    coord_fixed() + 
+    theme_void() + 
+    theme(panel.background = element_rect(fill = &quot;green&quot;))</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-7-4.png" width="672" /></p>
+<pre class="r"><code>## Jellyfish 
+  
+  ggplot() + 
+    geom_point(data = kw.seq,
+               mapping = aes(x = (sqrt(x) + (sin(y))), y = (sqrt(y) + (sin(x)))), 
+               alpha = 0.1, colour = &quot;blue&quot;) +
+    coord_fixed() + 
+    theme_void() + 
+    theme(panel.background = element_rect(fill = &quot;orange&quot;))</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-7-5.png" width="672" /></p>
+<pre class="r"><code>## Random Square
+  
+  ggplot() + 
+    geom_point(data = (kw.seq + 25),
+               mapping = aes(x = (sqrt(x) + (sin(y))), y = (sqrt(y) + (sin(x)))), 
+               alpha = 0.02, colour = &quot;blue&quot;) +
+    coord_fixed() + 
+    theme_void() + 
+    theme(panel.background = element_rect(fill = &quot;lightpink&quot;))</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-7-6.png" width="672" /></p>
+<pre class="r"><code>## 
+  ggplot() + 
+    geom_point(data = (kw.seq),
+               mapping = aes(x = (cos(x^2)^2 + sin(y)), y = (cos(y^2)^2 + sin(x)), 
+                             colour = x, alpha = y)) + 
+    geom_point(data = (kw.seq),
+               mapping = aes(x = (cos(x^2)^2 + sin(y)), y = (cos(y^2)^2 + sin(x)), 
+                             colour = -x, alpha = -y)) + 
+     
+    coord_fixed() + 
+    theme_void() +
+    theme(panel.background = element_rect(fill = &quot;blue&quot;),
+          legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-7-7.png" width="672" /></p>
+<p><br></p>
+<hr />
+<p><strong>Complex Designs</strong></p>
+<p>Based on <a href="https://fronkonstin.com/2018/09/06/tweetable-mathematical-art-with-r/">Fronkonstin’s blog</a></p>
+<p><strong>Summoning Cthulhu</strong></p>
+<pre class="r"><code>sc.seq &lt;- seq(from = -3, 
+              to = 3, 
+              by = 0.01) %&gt;% 
+  expand.grid(x = ., y = .)
+
+  ggplot(data = sc.seq, 
+         mapping = aes(x=(x^3-sin(y^2)), y=(y^3-cos(x^2)))) +
+  geom_point(alpha=.1, shape=20, size=0, color=&quot;white&quot;) +
+  theme_void() +
+  theme(panel.background = element_rect(fill=&quot;black&quot;)) +
+  coord_polar()</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><strong>Marine Creature</strong></p>
+<pre class="r"><code>mc.seq &lt;- seq(from = -10,
+              to = 10,
+              by = 0.05) %&gt;%
+  expand.grid(x = ., y = .)
+
+  ggplot(data = mc.seq, 
+         mapping = aes(x=(x^2+pi*cos(y)^2), y=(y+pi*sin(x)))) +
+  geom_point(alpha=.1, shape=20, size=1, color=&quot;black&quot;)+
+  theme_void()+coord_fixed()</code></pre>
+<p><img src="/aRt_with_R/practical/inspiration/_index.en_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>

@@ -20,3 +20,6 @@ weight: 40
 ### Check out my content:
 
 * [Data Viz for Business](<https://edu-resource.thomasjwise.com/dataviz_research/>)
+
+
+
