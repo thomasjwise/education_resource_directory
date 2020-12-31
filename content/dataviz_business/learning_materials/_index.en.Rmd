@@ -1,0 +1,61 @@
+---
+title: "Learning Material"
+menutitle: "Learning Material"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 20
+---
+---
+
+<font size = 4>
+**Good Practice for Graph Production**
+
+Current theory is based upon [Edward Tufte](<https://www.edwardtufte.com/tufte/>), a pioneer in the field of data visualisation. The main principles of his work are: 
+
+* They detail how data maps to perception 
+* It asks which comparisons you want to make, and then guide the eye to those 
+* Maximize the data-to-ink ratio
+* Present the most data, whilst maintaining high interpretability 
+* Data should be highly detailed whilst maintaining a clear narrative
+
+
+---
+
+
+<font size = 4> 
+**Plotting in R, *ggplot2* vs *plot* **
+
+<br>
+
+When comparing methods of plotting within R, most packages will be based upon one of two styles, The base R `plot()` function, or the Tidyverse `ggplot()` function. Although both are useful, both can be seen to have limitations in their usage. 
+
+<br>
+
+**plot()** 
+
+The `plot()` function, is ideal for *quick and dirty* scatter plotting, requiring only three basic parameters, `data = `, and `y ~ x`. And although variants do exist for bar plots (`barplot()`), histograms (`hist()`) and others, these (in my opinion) require more knowledge about their individual functions than the `ggplot()` system as a whole. This being said, for those who wish to generate (and master) one particular type of plot, this function may be more ideal. 
+
+<br>
+
+**ggplot()**
+
+As mentioned previous, `ggplot()` is a much more diverse function, which allows for a standard method of plotting across different plot types, with only minor variants depending on the type. This function (as seen in Figure 1, below) works through the layering of multiple information based layers in order to form a plot. This makes it ideal for plotting multiple layers of clear information with the capacity to edit areas at the individual or global level accordingly. 
+
+<br>
+
+![Figure 1](images/ggplot_graphs.jpg)
+
+<br>
+
+Overall, although both methods are useful, this session will focus on using `ggplot()` given is accessibility and standard practice, making it easier to create beautiful plots. 
+
+---
+
+<font size = 4> 
+**ggplot2 functions** 
+
+For a full list you can refer to the [ggplot2 reference page](<https://ggplot2.tidyverse.org/reference/index.html>), or the [PDF Cheat Sheet](<https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf>). However a brief summary of some of these functions can be seen below. 
+
+
+

@@ -1,0 +1,121 @@
+---
+title: "Beginners Worksheet"
+menutitle: "Beginner"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 10
+---
+
+
+
+<hr />
+<p><font size = 4>
+<strong>Package and Data Loading</strong></p>
+<p><br></p>
+<p>As mentioned within the session setup, load the following packages using the <code>library()</code> function. Additionally, as we will be using a data set with large numbers, set <em>scipen</em> to 999 using the option function.</p>
+<pre class="r"><code>  library(tidyverse)
+  library(RColorBrewer)
+
+  options(scipen = 999)</code></pre>
+<p>Furthermore, for the purpose of this session, we will be using data from the <a href="https://data.worldbank.org/">World Bank Open Data</a>. In particular we will be using a collection of variables from 1999, these variables were selected to provide us plenty of room to explore!</p>
+<p>It is included in your downloaded zip file from the accompanying <a href="">Github Repo</a> and can be loaded using the following code:</p>
+<pre class="r"><code>WDB_1999 &lt;- read_csv(&quot;data/WDB_1999.csv&quot;)</code></pre>
+<hr />
+<p><font size = 4>
+<strong>Section 1: ggplot2 vs plot</strong></p>
+<p><br></p>
+<p><strong>Exercise 1: Plotting <em>birthrate</em> against <em>deathrate</em> using both the <code>plot()</code> and <code>ggplot()</code> function, discuss which has more potential in displaying data clearly.</strong></p>
+<pre class="r"><code>## Plotting using plot()
+  
+  plot(data = ??,
+       y-var ~ x-var)
+
+
+## Plotting using ggplot()
+
+  ggplot(data = ??, 
+         mapping = aes(
+           x = ??
+           y = ??
+         )) + 
+    geom_point()</code></pre>
+<p><br></p>
+<p><strong>Exercise 2: Expand the plot to group these points by Continent, which provides us with more information and is easier to achieve? Remember, you’ll need to recode WDB_1999$Continent as a factor using the function:</strong></p>
+<pre class="r"><code>## Plotting using plot()
+
+WDB_1999$Continent &lt;- as.factor(WDB_1999$Continent)
+  
+  plot(data = ??,
+       y-var ~ x-var,
+       col(c(&quot;blue&quot;, &quot;light blue&quot;, &quot;red&quot;, &quot;pink&quot;, 
+             &quot;green&quot;, &quot;dark green&quot;, &quot;black&quot;, &quot;purple&quot;)[??])))
+
+
+## Plotting using ggplot()
+
+  ggplot(data = ??, 
+         mapping = aes(
+           x = ??,
+           y = ??,
+           colour = ??
+         )) + 
+    geom_point()</code></pre>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 2: Scatter Plots in ggplot</strong></p>
+<p><br></p>
+<p><strong>Exercise 3: Change the size parameter to <em>ed.years</em> to see if there is a trend between amount of years in Education and the Birth and Death Rate, set the alpha parameter to 0.5 to clearly see the relationships.</strong></p>
+<pre class="r"><code>  ggplot(data = ??, 
+         mapping = aes(
+           x = ??,
+           y = ??,
+           colour = ??,
+           size = ??
+         )) +
+    geom_point(alpha = ??)</code></pre>
+<p><br></p>
+<p><strong>Exercise 4: Change the Labels on the X and Y axis’ and provide a suitable title for the graph</strong></p>
+<pre class="r"><code>  + labs(x = ??,
+         y = ??,
+         title = ??)</code></pre>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 3: Bar Charts and Histograms</strong></p>
+<p><br></p>
+<p><strong>Exercise 5: Using the parameter <code>stat = "identity"</code> within the <code>geom_bar()</code> function, create a bar chart of <code>Continent</code> plotted against the mean <code>birthrate</code> or <code>deathrate</code></strong></p>
+<pre class="r"><code>  ggplot(data = ??) + 
+    geom_bar(stat = &quot;identity&quot;, 
+             mapping = aes(x = ??, 
+                           y = mean(??, na.rm = TRUE))) </code></pre>
+<p><br></p>
+<p><strong>Exercise 6: Using the function <code>geom_histogram()</code> create a histogram of the <em>birthrate</em> and <em>deathrate</em> </strong></p>
+<pre class="r"><code>  ggplot(data = ??) + 
+    geom_histogram(mapping = aes(x = ??), colour = &quot;blue&quot;, alpha = 0.5) + 
+    geom_histogram(mapping = aes(x = ??), colour = &quot;red&quot;, alpha = 0.5)</code></pre>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 4: Adding density plots to Histograms</strong></p>
+<p><br></p>
+<p><strong>Exercise 7: Using the plot created in exercise 6, add the y-variable <code>..density..</code> and <code>binwidth = 1</code> to <code>geom_histogram()</code> in addition to adding <code>geom_density()</code> to add density lines to the Histogram</strong></p>
+<pre class="r"><code>  ggplot(data = ??) + 
+    geom_histogram(mapping = aes(x = ??, y = ..density..), binwidth = 1, 
+                   colour = &quot;blue&quot;, alpha = 0.5) + 
+    geom_histogram(mapping = aes(x = ??, y = ..density..), binwidth = 1, 
+                   colour = &quot;red&quot;, alpha = 0.5) + 
+    geom_density(mapping = aes(x = ??), colour = &quot;blue&quot;, alpha = 0.5) + 
+    geom_density(mapping = aes(x = ??), colour = &quot;red&quot;, alpha = 0.5)</code></pre>
+<p><br></p>
+<p><strong>Exercise 8: Add the parameter, <code>adjust = 2</code> in the density plot, to smooth this link and make it more easily interpretable</strong></p>
+<pre class="r"><code>geom_density(mapping = aes(x = ??))</code></pre>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 5: Extra Useful Tips and Functions</strong></p>
+<p><br></p>
+<p><strong>Exercise 9: Use the <code>ggsave()</code> function to save your last plot</strong></p>
+<pre class="r"><code>ggsave(filename = ??, 
+       plot = last_plot())</code></pre>
