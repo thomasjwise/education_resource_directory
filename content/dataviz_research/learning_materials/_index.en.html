@@ -1,0 +1,55 @@
+---
+title: "Learning Material"
+menutitle: "Learning Material"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 20
+---
+
+
+
+<hr />
+<p><font size = 4>
+<strong>Basic theory of Good Practice for Graph Production</strong></p>
+<p>The current theory for good practice in graph production is driven by <a href="https://www.edwardtufte.com/tufte/">Edward Tufte</a>. As a pioneer across the field of data visualisation, his principles can be summarized as:</p>
+<ul>
+<li>Ensure the representation is “most fit for purpose”.</li>
+<li>Have a high data-to-ink ratio, that is the most information, in the shortest time, using the least about of ink in the smallest space.</li>
+<li>Ensure that graph upholds visual integrity, that no distortion or false impressions are created through the interpretation of the data or plot.</li>
+<li>Sometimes simplicity is the easy way to display highly complex information.</li>
+</ul>
+<p><br></p>
+<p>As a whole, although this is directly encouraged for graphical production in business, these values should be upheld in the realm of research. Since the traditional adage is true, a “picture is worth a thousand words”, especially when it comes to expressing complex, novel or important information.</p>
+<hr />
+<p><font size = 4>
+<strong>Data: Online Gaming Anxiety Data</strong></p>
+<p>Within this practical we will be using the <a href="https://www.kaggle.com/divyansh22/online-gaming-anxiety-data">Online Gaming Anxiety Data</a>. This dataset was collected as part of a survey among around 15,000 gamers worldwide, and examines participants response on questionnaires such as <a href="https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/410326">GAD-7</a>, <a href="https://link.springer.com/article/10.1007/BF00352944">SWL</a>, <a href="https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/psychometric-properties-of-the-social-phobia-inventory-spin/9E4A3EE20D2B1A6C222CDB5807AC086A">SPIN</a> as well as other demographic details. This data was selected as it contains a large amount of research data, similar to those which session participants are likely to come across in their research. For the purpose of this session, a sample of 5,000 (around 30%) of the participants.</p>
+<hr />
+<p><font size = 4>
+<strong>Plotting in R, <em>ggplot2</em> vs <em>plot</em> </strong></p>
+<p><br></p>
+<p>When comparing methods of plotting within R, most packages will be based upon one of two styles, The base R <code>plot()</code> function, or the Tidyverse <code>ggplot()</code> function. Although both are useful, both can be seen to have limitations in their usage.</p>
+<p><br></p>
+<p><strong>plot()</strong></p>
+<p>The <code>plot()</code> function, is ideal for <em>quick and dirty</em> scatter plotting, requiring only three basic parameters, <code>data =</code>, and <code>y ~ x</code>. And although variants do exist for bar plots (<code>barplot()</code>), histograms (<code>hist()</code>) and others, these (in my opinion) require more knowledge about their individual functions than the <code>ggplot()</code> system as a whole. This being said, for those who wish to generate (and master) one particular type of plot, this function may be more ideal.</p>
+<p><br></p>
+<p><strong>ggplot()</strong></p>
+<p>As mentioned previous, <code>ggplot()</code> is a much more diverse function, which allows for a standard method of plotting across different plot types, with only minor variants depending on the type. This function (as seen in Figure 1, below) works through the layering of multiple information based layers in order to form a plot. This makes it ideal for plotting multiple layers of clear information with the capacity to edit areas at the individual or global level accordingly.</p>
+<p><br></p>
+<div class="figure">
+<img src="images/ggplot_graphs.jpg" alt="" />
+<p class="caption">Figure 1</p>
+</div>
+<p><br></p>
+<p>Overall, although both methods are useful, this session will focus on using <code>ggplot()</code> given is accessibility and standard practice, making it easier to create beautiful plots.</p>
+<hr />
+<p><font size = 4>
+<strong>Graphics for Publications</strong></p>
+<p>As a whole, publications (such as Nature, Elsevier and those from the Taylor and Francis Group) ask that graphs, charts or schematics be published in one of several formats, EPS, TIFF or PSD.
+Using ggsave() or the export option in your RStudio Console, you can typically export a graph or image in the following formats: PNG, JPEG, TIFF, BMP, SVG, EPS.</p>
+<p>Therefore, for any publications it is recommended you use either EPS (file extension .eps), or TIFF (file extension .tif / .tiff). Or export the entire document plus graphs as a PDF (.pdf). Additionally, for most publications they request a resolution (dpi) or above 300, be warned that anything above 1000dpi typically takes a while to render (but ensures a high quality). This is covered further in the practical section of this workshop.</p>
+<hr />
+<p><font size = 4>
+<strong>ggplot2 functions</strong></p>
+<p>For a full list you can refer to the <a href="https://ggplot2.tidyverse.org/reference/index.html">ggplot2 reference page</a>, or the <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">PDF Cheat Sheet</a>. However a brief summary of some of these functions can be seen below.</p>

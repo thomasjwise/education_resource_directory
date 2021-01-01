@@ -30,7 +30,7 @@ As mentioned within the session setup, load the following packages using the `li
 
 Furthermore, for the purpose of this session, we will be using data from the [World Bank Open Data](<https://data.worldbank.org/>). In particular we will be using a collection of variables from 1999, these variables were selected to provide us plenty of room to explore! 
 
-It is included in your downloaded zip file from the accompanying [Github Repo](<>) and can be loaded using the following code:  
+It is included in your downloaded zip file from the accompanying [Github Repo](<https://github.com/thomasjwise/dataviz_business>) and can be loaded using the following code:  
 
 ```{r, eval = FALSE}
 

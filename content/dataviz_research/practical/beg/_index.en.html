@@ -1,0 +1,95 @@
+---
+title: "Beginners Worksheet"
+menutitle: "Beginner"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 10
+---
+
+
+
+<hr />
+<p><font size = 4>
+<strong>Package and Data Loading</strong></p>
+<p><br></p>
+<p>As mentioned within the session setup, load the following packages using the <code>library()</code> function. Additionally, as we will be using a data set with large numbers, set <em>scipen</em> to 999 using the option function.</p>
+<pre class="r"><code>  library(tidyverse)
+  library(RColorBrewer)
+
+  options(scipen = 999)</code></pre>
+<p>As mentioned previously, for the purpose of this session, we will be using a sample of the <a href="https://www.kaggle.com/divyansh22/online-gaming-anxiety-data">Online Gaming Anxiety Data</a>, this subset is avaliable to download as part of the .zip file downloadable from the <a href="https://github.com/thomasjwise/dataviz_research">Github Repo</a>. It can then be loaded using the following script:</p>
+<pre class="r"><code>gamingdata_samp &lt;- read_csv(&quot;data/gamingdata_samp.csv&quot;)</code></pre>
+<hr />
+<hr />
+<p><font size = 4>
+<strong>Section 1: ggplot2 vs plot</strong></p>
+<p><br></p>
+<p><strong>Exercise 1: Plotting <em>SPIN_T</em> against <em>Age</em> using both the <code>plot()</code> and <code>ggplot()</code> function, discuss which has more potential in displaying data clearly.</strong></p>
+<pre class="r"><code>## Plotting with plot()
+  plot(data = ??,
+       y-variable ~ x-variable)
+
+## Plotting with ggplot()
+
+  ggplot(data = ??,
+         mapping = aes(x = ??
+                       y = ??)) + 
+  geom_point()</code></pre>
+<p><br></p>
+<p><strong>Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you’ll need to recode gamingdata_samp$Gender as a factor using the function:</strong></p>
+<pre class="r"><code>gamingdata_samp$Gender &lt;- as.factor(gamingdata_samp$Gender)</code></pre>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 2: Basic Plotting Using ggplot</strong></p>
+<p><br></p>
+<p><strong>Exercise 3: Change the size parameter to <em>Hours</em> to see if there is a trend between the amount of hours, age and total SPIN score.</strong></p>
+<pre class="r"><code>  ggplot(data = ??,
+         mapping = aes(x = ??
+                       y = ??,
+                       size = ??)) + 
+  geom_point()</code></pre>
+<p><br></p>
+<p><strong>Exercise 4: Change the geom, from <em>geom_point()</em> to <em>geom_jitter()</em> and change the alpha parameter to 0.5 to more clearly see the relationship</strong></p>
+<p><br></p>
+<p><strong>Exercise 5: Change the X and Y axis labels, and title to something suitable for the plot, using the the <em>labs()</em> addition</strong></p>
+<pre class="r"><code>  + labs(x = ??, y = ??, title = ??)</code></pre>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 3: Different geom’s different plots</strong></p>
+<p><br></p>
+<p><strong>Exercise 6: Using <em>geom_bar()</em> plot the number of different cases in each gender</strong></p>
+<pre class="r"><code>  ggplot(data = gamingdata_samp,
+         mapping = aes(x = ??)) + 
+  geom_bar()</code></pre>
+<p><br></p>
+<p><strong>Exercise 7: Expand upon the <em>geom_bar()</em> plot, to determine the average (mean) number of Hours played by each gender.</strong><br />
+<strong>Hint:</strong> Ensure to add <em>stat = “summary”</em> into your <em>geom_bar()</em> function.</p>
+<pre class="r"><code>  ggplot(data = gamingdata_samp,
+         mapping = aes(x = ??, y = ??)) + 
+  geom_bar(stat = &quot;summary&quot;, &quot;mean&quot;)</code></pre>
+<p><br></p>
+<p><strong>Exercise 8: Expanding again on the plot created in Exercise 6, after using the following code to convert the Platform variable into a factor, specify the fill value to Platform.</strong></p>
+<pre class="r"><code>  gamingdata_samp$Platform &lt;- as.factor(gamingdata_samp$Platform)
+
+  ggplot(data = gamingdata_samp,
+         mapping = aes(x = ??, fill = ??)) + 
+  geom_bar()</code></pre>
+<p><br></p>
+<p><strong>Exercise 9: Through adding the appropriate limits function (xlim(), ylim(), lims()) in ggplot() set the upper threshold of your plot to 5,000</strong></p>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 4: Customization Part 1</strong></p>
+<p><br></p>
+<p><strong>Exercise 10: Using all the customization skills we have already discussed (labs(), lims() and geom’s), examine the relationship between an individuals Age, Number of Hours playing, their employment and what platform they use. Once completed, add one of the following themes to the end of your code, which looks best (to you)?</strong></p>
+<ul>
+<li>theme_bw()</li>
+<li>theme_minimal()</li>
+<li>theme_void()</li>
+<li>theme_dark()</li>
+<li>theme_classic</li>
+</ul>
+<p><strong>Hint:</strong> Consider using the mapping aesthetics such as <em>colour</em>, <em>size</em>, <em>shape</em>, <em>alpha</em> etc, to map the categorical variables.</p>
