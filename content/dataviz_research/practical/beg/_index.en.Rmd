@@ -57,7 +57,7 @@ gamingdata_samp <- read_csv("data/gamingdata_samp.csv")
 ## Plotting with ggplot()
 
   ggplot(data = ??,
-         mapping = aes(x = ??
+         mapping = aes(x = ??,
                        y = ??)) + 
   geom_point()
 
@@ -87,7 +87,7 @@ gamingdata_samp$Gender <- as.factor(gamingdata_samp$Gender)
 ```{r, eval = FALSE}
 
   ggplot(data = ??,
-         mapping = aes(x = ??
+         mapping = aes(x = ??,
                        y = ??,
                        size = ??)) + 
   geom_point()
@@ -136,7 +136,7 @@ gamingdata_samp$Gender <- as.factor(gamingdata_samp$Gender)
 
   ggplot(data = gamingdata_samp,
          mapping = aes(x = ??, y = ??)) + 
-  geom_bar(stat = "summary", "mean")
+  geom_bar(stat = "summary")
 
 ```
 
