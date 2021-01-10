@@ -22,19 +22,31 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-home'></i> TJ Wise - Homepage"
+identifier = "twhome"
+url = "https://www.thomasjwise.com/"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> TJ Wise - Github Repo"
+identifier = "twgithub"
+url = "https://github.com/thomasjwise"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> Learn Theme - Github Repo"
 identifier = "ds"
 url = "https://github.com/matcornic/hugo-theme-learn"
-weight = 10
+weight = 30
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fas fa-fw fa-bookmark'></i> Learn Theme - Hugo Documentation"
 identifier = "hugodoc"
 url = "https://gohugo.io/"
-weight = 20
+weight = 40
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fas fa-fw fa-bullhorn'></i> Learn Theme - Credits"
 url = "/credits"
-weight = 30
+weight = 50
 
