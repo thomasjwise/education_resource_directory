@@ -1,5 +1,6 @@
 ---
 title: Educational Resources
+description: Free Educational Resources for R and RStudio.
 ---
 
 # Educational Resources
