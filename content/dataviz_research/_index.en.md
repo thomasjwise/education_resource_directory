@@ -15,7 +15,7 @@ For this site, the contents of both sessions will be combined, however if you wi
 
 ---
 
-## Session 1: A Data Driven Hope
+## Session 1: A Data Driven Hope (Practical Exercises 1-10)
 
 ## Session Objectives
 
@@ -35,7 +35,7 @@ For this site, the contents of both sessions will be combined, however if you wi
 
 ---
 
-## Session 2: 
+## Session 2: Revenge of the Data (Practical Exercises 11-20)
 
 ## Session Objectives 
 
@@ -45,7 +45,7 @@ For this site, the contents of both sessions will be combined, however if you wi
 
 ## Transferable Skills 
 
-* Use of replicatable techniques for graph production 
+* Use of replication driven techniques for graph production 
 * Use of effective layering techniques in ggplot
 * Understanding techniques to make effective publishable plots in line with common standards.
 

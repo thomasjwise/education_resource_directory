@@ -22,7 +22,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [[Languages.en.menu.shortcuts]]
-name = "<i class='fab fa-fw fa-home'></i> TJ Wise - Homepage"
+name = "<i class='fas fa-fw fa-home'></i> TJ Wise - Homepage"
 identifier = "twhome"
 url = "https://www.thomasjwise.com/"
 weight = 10
@@ -32,6 +32,13 @@ name = "<i class='fab fa-fw fa-github'></i> TJ Wise - Github Repo"
 identifier = "twgithub"
 url = "https://github.com/thomasjwise"
 weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-coffee'></i> Support my Content"
+identifier = "twbmacoffee"
+url = "https://www.buymeacoffee.com/thomasjwise"
+weight = 25
+
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> Learn Theme - Github Repo"
