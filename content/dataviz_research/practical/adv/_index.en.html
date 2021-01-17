@@ -19,7 +19,7 @@ weight: 20
 
   options(scipen = 999)</code></pre>
 <p>As mentioned previously, for the purpose of this session, we will be using a sample of the <a href="https://www.kaggle.com/divyansh22/online-gaming-anxiety-data">Online Gaming Anxiety Data</a>, this subset is avaliable to download as part of the .zip file downloadable from the <a href="https://github.com/thomasjwise/dataviz_research">Github Repo</a>. It can then be loaded using the following script:</p>
-<pre class="r"><code>gamingdata_samp &lt;- read_csv(&quot;data/gamingdata_samp.csv&quot;)</code></pre>
+<pre class="r"><code>gamingdata_samp5000 &lt;- read_csv(&quot;data/gamingdata_samp5000.csv&quot;)</code></pre>
 <hr />
 <hr />
 <p><font size = 4>
@@ -27,8 +27,8 @@ weight: 20
 <p><br></p>
 <p><strong>Exercise 1: Plotting <em>SPIN_T</em> against <em>Age</em> using both the <code>plot()</code> and <code>ggplot()</code> function, discuss which has more potential in displaying data clearly.</strong></p>
 <p><br></p>
-<p><strong>Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you’ll need to recode gamingdata_samp$Gender as a factor using the function:</strong></p>
-<pre class="r"><code>gamingdata_samp$Gender &lt;- as.factor(gamingdata_samp$Gender)</code></pre>
+<p><strong>Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you’ll need to recode gamingdata_samp5000$Gender as a factor using the function:</strong></p>
+<pre class="r"><code>gamingdata_samp5000$Gender &lt;- as.factor(gamingdata_samp5000$Gender)</code></pre>
 <p><br></p>
 <hr />
 <p><font size = 4>

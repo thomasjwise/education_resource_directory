@@ -19,7 +19,7 @@ weight: 10
 
   options(scipen = 999)</code></pre>
 <p>As mentioned previously, for the purpose of this session, we will be using a sample of the <a href="https://www.kaggle.com/divyansh22/online-gaming-anxiety-data">Online Gaming Anxiety Data</a>, this subset is avaliable to download as part of the .zip file downloadable from the <a href="https://github.com/thomasjwise/dataviz_research">Github Repo</a>. It can then be loaded using the following script:</p>
-<pre class="r"><code>gamingdata_samp &lt;- read_csv(&quot;data/gamingdata_samp.csv&quot;)</code></pre>
+<pre class="r"><code>gamingdata_samp5000 &lt;- read_csv(&quot;data/gamingdata_samp5000.csv&quot;)</code></pre>
 <hr />
 <hr />
 <p><font size = 4>
@@ -37,8 +37,8 @@ weight: 10
                        y = ??)) + 
   geom_point()</code></pre>
 <p><br></p>
-<p><strong>Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you’ll need to recode gamingdata_samp$Gender as a factor using the function:</strong></p>
-<pre class="r"><code>gamingdata_samp$Gender &lt;- as.factor(gamingdata_samp$Gender)</code></pre>
+<p><strong>Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you’ll need to recode gamingdata_samp5000$Gender as a factor using the function:</strong></p>
+<pre class="r"><code>gamingdata_samp5000$Gender &lt;- as.factor(gamingdata_samp5000$Gender)</code></pre>
 <p><br></p>
 <hr />
 <p><font size = 4>
@@ -61,20 +61,20 @@ weight: 10
 <strong>Section 3: Different geom’s different plots</strong></p>
 <p><br></p>
 <p><strong>Exercise 6: Using <em>geom_bar()</em> plot the number of different cases in each gender</strong></p>
-<pre class="r"><code>  ggplot(data = gamingdata_samp,
+<pre class="r"><code>  ggplot(data = gamingdata_samp5000,
          mapping = aes(x = ??)) + 
   geom_bar()</code></pre>
 <p><br></p>
 <p><strong>Exercise 7: Expand upon the <em>geom_bar()</em> plot, to determine the average (mean) number of Hours played by each gender.</strong><br />
 <strong>Hint:</strong> Ensure to add <em>stat = “summary”</em> into your <em>geom_bar()</em> function.</p>
-<pre class="r"><code>  ggplot(data = gamingdata_samp,
+<pre class="r"><code>  ggplot(data = gamingdata_samp5000,
          mapping = aes(x = ??, y = ??)) + 
   geom_bar(stat = &quot;summary&quot;)</code></pre>
 <p><br></p>
 <p><strong>Exercise 8: Expanding again on the plot created in Exercise 6, after using the following code to convert the Platform variable into a factor, specify the fill value to Platform.</strong></p>
-<pre class="r"><code>  gamingdata_samp$Platform &lt;- as.factor(gamingdata_samp$Platform)
+<pre class="r"><code>  gamingdata_samp5000$Platform &lt;- as.factor(gamingdata_samp5000$Platform)
 
-  ggplot(data = gamingdata_samp,
+  ggplot(data = gamingdata_samp5000,
          mapping = aes(x = ??, fill = ??)) + 
   geom_bar()</code></pre>
 <p><br></p>

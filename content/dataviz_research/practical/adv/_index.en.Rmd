@@ -33,7 +33,7 @@ As mentioned previously, for the purpose of this session, we will be using a sam
 
 ```{r, eval = FALSE}
 
-gamingdata_samp <- read_csv("data/gamingdata_samp.csv")
+gamingdata_samp5000 <- read_csv("data/gamingdata_samp5000.csv")
 
 ```
 ---
@@ -49,11 +49,11 @@ gamingdata_samp <- read_csv("data/gamingdata_samp.csv")
 
 <br>
 
-**Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you'll need to recode gamingdata_samp$Gender as a factor using the function:**
+**Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you'll need to recode gamingdata_samp5000$Gender as a factor using the function:**
 
 ```{r, eval = FALSE}
 
-gamingdata_samp$Gender <- as.factor(gamingdata_samp$Gender)
+gamingdata_samp5000$Gender <- as.factor(gamingdata_samp5000$Gender)
 
 ```
 

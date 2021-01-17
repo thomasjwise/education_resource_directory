@@ -11,7 +11,7 @@ weight: 30
 ```{r, include = FALSE, warning = FALSE, message = FALSE}
 library(rmarkdown)
 library(tidyverse)
-gamingdata_samp <- read_csv("data/gamingdata_samp.csv")
+gamingdata_samp5000 <- read_csv("data/gamingdata_samp5000.csv")
 ```
 
 <font size = 4> 
@@ -34,9 +34,14 @@ As mentioned previously, for the purpose of this session, we will be using a sam
 
 ```{r, eval = FALSE}
 
-gamingdata_samp <- read_csv("data/gamingdata_samp.csv")
+gamingdata_samp5000 <- read_csv("../../data/gamingdata_samp5000.csv")
+gamingdata_samp100 <- read_csv("../../data/gamingdata_samp100.csv")
 
 ```
+
+<br>
+
+Throughout this practical you are welcome to use either the large sampled version (n=5000), or small sampled version (n=100). Throughout this practical the large sampled version will be used.
 
 <br>
 
@@ -77,11 +82,11 @@ It includes the following variables:
 
 <br>
 
-**Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you'll need to recode gamingdata_samp$Gender as a factor using the function:**
+**Exercise 2: Expand the plot to group these points by Gender, which provides us with more information and is easier to achieve? Remember, you'll need to recode gamingdata_samp5000$Gender as a factor using the function:**
 
 ```{r}
 
-gamingdata_samp$Gender <- as.factor(gamingdata_samp$Gender)
+gamingdata_samp5000$Gender <- as.factor(gamingdata_samp5000$Gender)
 
 ```
 
@@ -126,7 +131,7 @@ gamingdata_samp$Gender <- as.factor(gamingdata_samp$Gender)
 
 ```{r, eval = FALSE, echo = TRUE}
 
-gamingdata_samp$Platform <- as.factor(gamingdata_samp$Platform)
+gamingdata_samp5000$Platform <- as.factor(gamingdata_samp5000$Platform)
 
 ```
 
