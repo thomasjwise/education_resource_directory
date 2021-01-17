@@ -11,7 +11,7 @@ weight: 30
 ```{r, include = FALSE, warning = FALSE, message = FALSE}
 library(rmarkdown)
 library(tidyverse)
-gamingdata_samp5000 <- read.csv("../data/gamingdata_samp5000.csv")
+gamingdata_samp5000 <- read.csv("content/dataviz_research/practical/data/gamingdata_samp5000.csv")
 ```
 
 <font size = 4> 
@@ -432,7 +432,7 @@ ggplot(data = gamingdata_samp5000,
 **Exercise 19a: Using the function *ggsave()*, export your last plot (using the parameter *last_plot()*). Use the template provided to structure your export.**
 
 ```{r, eval = FALSE}
-
+ 
 ggsave(filename = "test_plot.png", 
        plot = last_plot())
 
