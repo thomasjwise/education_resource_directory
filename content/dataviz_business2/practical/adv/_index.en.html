@@ -1,0 +1,93 @@
+---
+title: "Advanced Worksheet"
+menutitle: "Advanced"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 20
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<hr />
+<p><font size = 4>
+<strong>Package and Data Loading</strong></p>
+<p><br></p>
+<p>As mentioned within the session setup, load the following packages using the <code>library()</code> function. Additionally, as we will be using a data set with large numbers, set <em>scipen</em> to 999 using the option function.</p>
+<pre class="r"><code>  library(tidyverse)
+  library(RColorBrewer)
+  library(ggpubr)
+
+  options(scipen = 999)</code></pre>
+<p>Next load in the data, make relevant adjustment converting the Continent String variable into a Factor variable.</p>
+<pre class="r"><code>WDB_1999 &lt;- read.csv(&quot;.../data/WDB_1999.csv&quot;)
+WDB_1999$Continent &lt;- factor(WDB_1999$Continent)</code></pre>
+<hr />
+<p><font size = 4>
+<strong>Section 1: Specifying the Visual Space</strong></p>
+<p><br></p>
+<p><strong>Exercise 1: Using the example code provided, add two of the themes listed below.</strong>
+How are these themes different? Under what situations would one of these themes be better than another?</p>
+<pre class="r"><code>ggplot() + 
+  geom_point(data = WDB_1999,
+             mapping = aes(x = lifeexp.ma, 
+                           y = lifeexp.fe,
+                           colour = Continent))</code></pre>
+<p>Possible themes:</p>
+<ul>
+<li>theme_bw()</li>
+<li>theme_classic()</li>
+<li>theme_dark()</li>
+<li>theme_light()</li>
+<li>theme_minimal()</li>
+<li>theme_void()</li>
+</ul>
+<p><strong>Exercise 2: Using your preferred theme function from exercise 1; add another theme layer (using theme()), specifying a novel background colour, you can use the template provided. Simply replace “XXX” with a colour of your choice.</strong></p>
+<p><br></p>
+<p><strong>Exercise 3: Going Further: run the command “?theme”.</strong>
+When doing so, explore the large range of potential adaptions, spend some time deploying these to understand the potential adaptions you can make. When doing so, do not forget to provide the following where relevant:</p>
+<ul>
+<li>element_text()</li>
+<li>element_rect()</li>
+<li>element_line()</li>
+</ul>
+<pre class="r"><code>?theme</code></pre>
+<hr />
+<p><font size = 4>
+<strong>Section 2: Specifying the axis’s</strong></p>
+<p><br></p>
+<p><strong>Exercise 4: Using an alternative to theme, increase the limits of the x &amp; y axis.</strong>
+Hint: Use lims(y = c(), x = c()), placing the limits at 0 &amp; 100</p>
+<p><br></p>
+<p><strong>Exercise 5: Currently the produced graph breaks the axis scale every 25 years, using the example provided, use scale_y_continuous &amp; scale_x_continuous. To specify both limits and specific breaks (every 20) in the axis, you can use, n.breaks or breaks to specify the breaks.</strong></p>
+<p><br></p>
+<p><strong>Exercise 6: Using the code you generated in Exercise 5, add in specification of the angle of break labels using axis.text.x and axis.text.y respectively. Ensure to add these in a theme() layer.</strong></p>
+<p><br></p>
+<p><strong>Exercise 7: Now considering the relationship between population and life expectancy. Plot these two variables using a scatter plot, using a log10 scale for population.</strong></p>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 3: Specifying Labels</strong></p>
+<p><br></p>
+<p><strong>Exercise 8: Using the layer definition labs(), generate names for the x, y and title, for the plot in exercise 7</strong></p>
+<p><br></p>
+<p><strong>Exercise 9: Using the plot generated in Exercise 8, indicate the nation with the lowest life expentancy, adding an annotation, labeling “Sierra Leone” at x = 1000000, y = 42</strong></p>
+<p><br></p>
+<p><strong>Exercise 10: Add two reference lines (indicating the UK) in life expectancy and Population, build this upon exercise 9, and use x &amp; y intercept points as x = 58682466, y = 77.39024</strong></p>
+<hr />
+<p><font size = 4>
+<strong>Section 4: Specifying Layouts</strong></p>
+<p><br></p>
+<p><strong>Exercise 11: Using facet_grid(), generate a matrix of panels for the multiple continents, build this upon Exercise 10. Consider the issue(s) with using this facet style?</strong></p>
+<p><br></p>
+<p><strong>Exercise 12: Generate the following plots, assigning each to a relevant variable name (plot_1 : plot_4)</strong>
+Using ggarrange, combine these four plots into one visualisation</p>
+<ul>
+<li>plot_1 -&gt; Scatter plot, between Male Population &amp; Male Life expentancy</li>
+<li>plot_2 -&gt; Scatter plot, between Female Population &amp; Female life expentancy</li>
+<li>plot_3 -&gt; Scatter plot, between Overall Population &amp; Overall Life expentancy</li>
+<li>plot_4 -&gt; Scatter plot, birthrate &amp; deathrate</li>
+</ul>
+<p>For each ensure to set colour as continent, and that they share a common legend, setting common.legend = TRUE
+Throughout, use all your knowledge adding information wherever required</p>

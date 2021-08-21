@@ -12,13 +12,9 @@ If you like these educational resources, and would like to make a suggestion for
 ## Current Resources Available: 
 
 * **aRt with R**: A creative introduction to data visualisation 
-* **Data Viz for Business**: An introduction to business focused data visualization in R 
 * **Data Viz for Research**: An introduction to research focused data visualization in R
-
-## Materials in Development (Release date unknown): 
-
-* **Introduction to R**: A general introduction to R setup
-* **Data Viz for Business 2**: Advanced business focused data visualization in R 
-* **Data Viz for Research 2**: Advanced research focused data visualization in R 
+* **Data Viz for Business 1**: An introduction to business focused data visualization in R
+* **Data Viz for Business 2**: Business focused on publishing plots in R
+* **Introduction to Machine Learning**: An introduction to tree-based models in R
 
 

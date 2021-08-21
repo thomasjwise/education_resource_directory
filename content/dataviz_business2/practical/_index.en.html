@@ -1,0 +1,54 @@
+---
+title: "Practical Worksheet"
+menutitle: "Practical"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 30
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<hr />
+<p><font size = 4>
+<strong>Package and Data Loading</strong></p>
+<p><br></p>
+<p>As mentioned within the session setup, load the following packages using the <code>library()</code> function. Additionally, as we will be using a data set with large numbers, set <em>scipen</em> to 999 using the option function.</p>
+<pre class="r"><code>  library(tidyverse)
+  library(RColorBrewer)
+  library(ggpubr)
+
+  options(scipen = 999)</code></pre>
+<p>Furthermore, for the purpose of this session, we will be using data from the <a href="https://data.worldbank.org/">World Bank Open Data</a>. In particular we will be using a collection of variables from 1999, these variables were selected to provide us plenty of room to explore!</p>
+<p>It is included in your downloaded zip file from the accompanying <a href="">Github Repo</a> and can be loaded using the following code:</p>
+<pre class="r"><code>WDB_1999 &lt;- read_csv(&quot;data/WDB_1999.csv&quot;)</code></pre>
+<p>It includes the following variables:</p>
+<ul>
+<li>Country Name (Country Name)</li>
+<li>Country Code (Country Code)</li>
+<li>Continent (Continent)</li>
+<li>Year (Year)</li>
+<li>Population (Pop)</li>
+<li>Female Population (Pop.fe)</li>
+<li>Male Population (Pop.ma)</li>
+<li>Birth Rate, crude per 1000 people (birthrate)</li>
+<li>Death Rate, crude per 1000 people (deathrate)</li>
+<li>Life Expectancy at Birth in years (lifeexp)</li>
+<li>Female Life Expectancy at Birth in years (lifeexp.fe)</li>
+<li>Male Life Expectancy at Birth in years (lifeexp.ma)</li>
+<li>Educational Spending, percentage of GDP (ed.spend)</li>
+<li>Compulsory Education Duration in Years (ed.years)</li>
+<li>Labour Force Total (labour)</li>
+<li>Literature Rate in adults, percentage % (lit.rate.per)</li>
+<li>CO2 Emissions, kt (co2)</li>
+<li>Gross Domestic product, $ (gdp)</li>
+<li>Unemployment, percentage of total labour force (unemp)</li>
+<li>Female Unemployment, percentage of total labour force (unemp.fe)</li>
+<li>Male Unemployment, percentage of total labour force (unemp.ma)</li>
+<li>Health Expenditure per capita, $ (health.exp)</li>
+<li>Hospital Beds per 1000 people (medbeds)</li>
+<li>Number of Surgical Procedures per 1000 people (surg.pro)</li>
+<li>Number of Nurses &amp; Midwives per 1000 people (nurse.midwi)</li>
+</ul>
+<hr />

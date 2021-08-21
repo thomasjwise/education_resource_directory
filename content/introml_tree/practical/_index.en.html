@@ -1,0 +1,47 @@
+---
+title: "Practical Introduction"
+menutitle: "Practical"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 30
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<hr />
+<p><font size = 4>
+<strong>Package and Data Loading</strong></p>
+<p><br></p>
+<p>As mentioned during the session setup, load the following packages using the <code>library()</code> function. Additionally, as we will be using a data set which contains large numbers, set scipen to 999, within the <code>options()</code> function.</p>
+<pre class="r"><code>library(tidyverse)
+library(caret)
+library(tree)
+library(rpart)
+library(rpart.plot)
+
+options(scipen = 999)</code></pre>
+<p>Furthermore, for the purpose of this session, we will be using data from <a href="https://archive-beta.ics.uci.edu/">UC Irvine Machine Learning Repository</a> and in particular the <a href="https://archive-beta.ics.uci.edu/ml/datasets/109">Red Wine Quality Dataset</a>. This can be downloaded from the site directly, or contained in the <a href="/zip/introml_tree.zip">.zip file</a>.</p>
+<pre class="r"><code>winequality_red &lt;- read_csv(&quot;data/winequality-red.csv&quot;)</code></pre>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>This data set contains 1599 observations across the following variables:</p>
+<ul>
+<li>Fixed Acidity (‘fixed acidity’) - fixed &amp; nonvolatile acid in the wine.</li>
+<li>Volatile Acidity (‘volatile acidity’) - the amount of acetic acid in the wine, related to vinegar flavours.</li>
+<li>Citric Acid (‘citric acid’) - amount of citric acid in the wine, related to “freshness”.</li>
+<li>Residual Sugar (‘residual sugar’) - the amount of sugar remaining after fermentation.</li>
+<li>Chlorides (‘chlorides’) - the amount of salt in the wine.</li>
+<li>Free Sulfur Dioxide (‘free sulfur dioxide’) - A free form of SO2, preventing microbial growth and oxidation.</li>
+<li>Total Sulfur Dioxide (‘Total Sulfur Dioxide’) - Total SO2 amount, calculated from both free and bound forms.</li>
+<li>Density (‘density’) - The density of water, depending on the percent of alcohol and sugar content.</li>
+<li>pH (‘pH’) - Describes how acidic or basic the wine is (between 0, very acidic, and 14, very basic).</li>
+<li>Sulphates (‘sulphates’) - A wine additive which contributes to SO2 levels, acts as an antimicrobial and antioxidant.</li>
+<li>Alcohol (‘alcohol’) - The percent alcohol content of the wine.</li>
+<li>Quality (‘quality’) - The output variable, based upon sensory data (0 - 10).</li>
+</ul>
+<p><br></p>
+<hr />
+<p><br></p>

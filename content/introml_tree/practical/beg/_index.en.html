@@ -1,0 +1,187 @@
+---
+title: "Beginners Worksheet"
+menutitle: "Beginner"
+mainfont: Arial
+fontsize: 12pt
+urlcolor: blue
+weight: 10
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<hr />
+<p><font size = 4>
+<strong>Package and Data Loading</strong></p>
+<p><br></p>
+<p>As mentioned during the session setup, load the following packages using the <code>library()</code> function. Additionally, as we will be using a data set which contains large numbers, set scipen to 999, within the <code>options()</code> function.</p>
+<pre class="r"><code>library(tidyverse)
+library(caret)
+library(tree)
+library(rpart)
+library(rpart.plot)
+library(e1071)
+
+options(scipen = 999)</code></pre>
+<p>Furthermore, for the purpose of this session, we will be using data from <a href="https://archive-beta.ics.uci.edu/">UC Irvine Machine Learning Repository</a> and in particular the <a href="https://archive-beta.ics.uci.edu/ml/datasets/109">Red Wine Quality Dataset</a>. This can be downloaded from the site directly, or contained in the <a href="/zip/introml_tree.zip">.zip file</a>.</p>
+<pre class="r"><code>winequality_red &lt;- read_csv(&quot;data/winequality-red.csv&quot;)</code></pre>
+<p><br></p>
+<hr />
+<p><font size = 4>
+<strong>Section 1: Data Preparation for Tree-based Models</strong></p>
+<p><br></p>
+<p><strong>Exercise 1: Transform the data: Numeric to Binary</strong></p>
+<p>For some tasks you may be required to generate a classification tree, rather than a regression tree. The major difference between these types is that classification trees look to predict a nominal output, whereas regression trees aim to predict a continuous output (numeric). In this case we can actively convert our outcome variable (<code>quality</code>) from a numeric continuous variable (0-8) to a dichotomous variable rating wine as either high (&gt;6) or low (&lt;=6) on this scale.</p>
+<p><br></p>
+<p>To do this, (as always) there are multiple options, one of the easiest is the <code>ifelse()</code> function. This function works through providing a binary statement, or threshold, with options being listed if the statement is true or false.</p>
+<p>Apply the following code to your data to convert from numeric to binary data.</p>
+<pre class="r"><code>winequality_red$quality_bin &lt;- ifelse(winequality_red$quality &lt;= 6, 
+                                      yes = &quot;low&quot;, no = &quot;high&quot;)
+
+winequality_red$quality_bin &lt;- factor(winequality_red$quality_bin)</code></pre>
+<p><br></p>
+<p>Prior to any models being developed, data must be prepared through splitting in <em>training</em> and <em>testing</em> groups. To do this, two methods can be used, to begin with we will use a manual method in which we split the data by hand.</p>
+<p><br></p>
+<p>To ensure we are all using the same data, firstly set the reproducible seed. Personally, I use dates as my seeds, this produces 8 digit seeds which are great for reproducibility.</p>
+<pre class="r"><code>set.seed(13052006)</code></pre>
+<p><br></p>
+<p>Most training-test (TT) splits are 80/20, that is 80% training data, 20% testing data.</p>
+<p><br></p>
+<p>In our manual method we firstly calculate the number of observations in each set. In this case:</p>
+<ul>
+<li>Training = 1599 x 0.8 = 1279.2</li>
+<li>Testing = 1599 x 0.2 = 319.8</li>
+</ul>
+<p>We can adjust these to ensure whole numbers through rounding accordingly.</p>
+<ul>
+<li>Training = 1599 x 0.8 = 1279</li>
+<li>Testing = 1599 x 0.2 = 320</li>
+</ul>
+<p>Now we can generate a pair of vectors (train.vec &amp; test.vec) each containing the word “train” or “test” accordingly, to the length provided. These can then be combined as comb.vec of total length 1599, containing both training and testing lists.</p>
+<pre class="r"><code>train.vec &lt;- rep_len(&quot;train&quot;, length.out = 1279)
+test.vec &lt;- rep_len(&quot;test&quot;, length.out = 320)
+
+comb.vec &lt;- c(train.vec, test.vec)</code></pre>
+<p>Next, using a for loop, as provided below. You can assign each observation as a training or test case, creating a new variable in the process called <em>group</em>.</p>
+<pre class="r"><code>## Example 1
+for(i in 1:1599){
+  winequality_red[i,&quot;group&quot;] &lt;- sample(comb.vec, size = 1, replace = FALSE) 
+}</code></pre>
+<p>Note, for more advanced users, this process can be easily completed through skipping the step above and using the following the code in example 2.</p>
+<pre class="r"><code>## Example 2 (Advanced)
+for(i in 1:1599){
+  winequality_red[i, &quot;group&quot;] &lt;- sample(c(&quot;train&quot;, &quot;test&quot;), size = 1, replace = TRUE, prob = c(&quot;train&quot; = 0.8, &quot;test&quot; = 0.2))
+}</code></pre>
+<p>Once these groups are identified they can easily be split using the <code>filter()</code> function. From these divided groups you can then use this data to train and test your Machine Learning Models.</p>
+<pre class="r"><code>train.dat &lt;- filter(winequality_red, `group` == &quot;train&quot;)
+test.dat &lt;- filter(winequality_red, `group` == &quot;test&quot;)</code></pre>
+<p><br></p>
+<p>The alternative, and arguably more direct method uses the <code>createDataPartition()</code> function. In which you skip most of the steps above, simply grouping the data randomly into training or testing data.</p>
+<pre class="r"><code>## Create Data Partition
+train.vec2 &lt;- createDataPartition(
+  y = winequality_red$quality, ## Quality is the outcome variable
+  p = 0.8, ## p lists the percent to training
+  list = FALSE ## Format of the results
+)
+
+## Partition The data, based upon the partition
+train.dat2 &lt;- winequality_red[train.vec2,]
+train.dat2 &lt;- winequality_red[-train.vec2,]</code></pre>
+<p>Both methods are acceptable, however the first is useful in understanding the process completed.</p>
+<p><br></p>
+<p><strong>Exercise 2: Prepare the data yourself</strong></p>
+<p><br></p>
+<p>Using one of the techniques listed above, prepare a training and testing data group. Once split, use <code>summary()</code> to see whether the data is similar. Compare the median, mean and range.</p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p><font size = 4>
+<strong>Section 2: My First Decision Tree</strong></p>
+<p><br></p>
+<p>Now that the data is prepared, we can begin to examine specific examples. As with most things within R, there are a million different ways to achieve the same goal. In this case, you can use the function <code>rpart()</code> (Package rpart); <code>tree()</code> (Package tree); or <code>train()</code> (Package caret). For this workshop, as the the textbook uses <code>tree()</code>, we will focus on <code>rpart()</code>, providing an alternative. As a general rule, the techniques, and parameter understanding developed here are transferable between different functions.</p>
+<p><br></p>
+<p><strong>Exercise 3: Using <code>rpart()</code>, with the formula listed below, generate a classification tree to predict quality.</strong></p>
+<p><br></p>
+<p>Formula = quality_bin ~ alcohol + citric acid + pH</p>
+<p><br></p>
+<p>Remember to “`” around citric acid, to ensure it recognizes the variable!</p>
+<p>Once completed, use <code>rpart.plot()</code> to plot the classification tree.</p>
+<p><br></p>
+<pre class="r"><code>## Model the Tree
+class_tree_1 &lt;- rpart(data = train.dat, 
+                      formula = )
+
+## Plot the classification tree
+rpart.plot(class_tree_1)</code></pre>
+<p>This produces a clear and highly interpretable classification tree, using these variables to classify quality. A similar result can be produced for a regression tree, through adapting the formula swapping <code>quality_bin</code> for <code>quality</code>.</p>
+<p><br></p>
+<p><strong>Exercise 4: Using <code>rpart()</code>, generate a regression tree to predict quality.</strong></p>
+<p>Remember to use <code>quality</code> rather than <code>quality_bin</code>.</p>
+<p><br></p>
+<pre class="r"><code>## Model the Tree
+reg_tree_1 &lt;- rpart(data = train.dat, 
+                      formula = )
+
+## Plot the classification tree
+rpart.plot(reg_tree_1)</code></pre>
+<p><br></p>
+<p><strong>Exercise 5: Compare the plots side by side, which do you think will more accuracy predict red wine quality, the classification or regression tree?</strong></p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p><strong>Section 3: Evaluating Tree-based models</strong></p>
+<p><br></p>
+<p>In order to evaluate the effectiveness of a devised model, one must first apply the model developed on the training data onto new, novel data, in this case the test data we assigned earlier. From this, we can compare the the predicted outcome to the true outcome using a confusion matrix, to calculate various assessments of evaluation like accuracy.</p>
+<p><br></p>
+<p>To apply the model to the training data, we can use the <code>predict()</code> function, which applies the predefined model to new data, in our case being the testing data.</p>
+<p><strong>Exercise 6: Using the <code>predict()</code> function, apply both the classification and regression trees to the testing data.</strong></p>
+<pre class="r"><code>## For classification trees 
+class_pred &lt;- predict(object = , ## Specify the model here
+                      newdata = ) ## Specify the new data here
+
+## For classification trees 
+reg_pred &lt;- predict(object = , ## Specify the model here
+                      newdata = ) ## Specify the new data here</code></pre>
+<p>When we use the predict function, this applies the new data provided to the specified object model, in order to predict the outcome. From this depending on what type of model we have used, we can evaluate its performance.</p>
+<p><br></p>
+<p>Before any evaluations can take place, some cleaning and manipulation must be completed. Firstly, for classification prediction a probability is produced for each available option, as such we must specify which is the predicted category each observation falls into. This can be done using another for loop and associated if statements as below:</p>
+<p><br></p>
+<pre class="r"><code>## Convert the predicted information to a dataframe
+class_pred &lt;- as.data.frame(class_pred)
+
+## For each row in in the predicted class, if the probability is greater for high than low, then list high as the predicted. 
+for(i in 1:nrow(class_pred)){
+  if(class_pred[i,1] &gt; class_pred[i,2]){
+    class_pred[i,&quot;pred&quot;] &lt;- &quot;high&quot;
+  } else {
+    class_pred[i,&quot;pred&quot;] &lt;- &quot;low&quot;
+  }
+}
+
+## Convert to a factor
+class_pred$pred &lt;- factor(class_pred$pred)</code></pre>
+<p><br></p>
+<p>Once this manipulation is completed, you can use the function <code>confusionMatrix()</code> which compared the predicted against the actual observations in order to evaluate the model.</p>
+<p><strong>Exercise 7: After manipulating the predicted class data as above, use the function <code>confusionMatrix()</code> to evaluate this model</strong></p>
+<pre class="r"><code>confusionMatrix(data = , ## Specify the predicted data and specifically the output
+                reference = ) ## Specify the reference data and specifically the output</code></pre>
+<p>When running this function, it produces a large amount of different statistical information, these are broken down further in <em>Learning Material: Evaluating Models</em>.</p>
+<p><br></p>
+<p>In comparison, to evaluate the fit of regression trees, we use Root Mean Squared Error or RMSE. Which is a single measure of the absolute deviation from the predicted line the observed area. With the smaller this value being, the better fit this model is.</p>
+<p><br></p>
+<p>To calculate the RMSE, the function <code>RMSE()</code> can be used, similar to the confusionMatrix function, this also uses data and reference as its inputs.</p>
+<p><br></p>
+<p><strong>Exercise 8: Using the function <code>RMSE()</code> evaluate the Regression Tree Model</strong></p>
+<pre class="r"><code>RMSE(pred = , # Predicted
+     obs = ) # Observed</code></pre>
+<p><br></p>
+<hr />
+<p><br></p>
+<p><strong>Section 4: Review &amp; Comparison</strong></p>
+<p><br></p>
+<p><strong>Exercise 9: Using all the knowledge from today’s session, and that available from the <em>Learning Materials</em> tab, run additional regression and classification trees, using as much or as little of the data set provided as you wish, and compare which combination of variables is best at predicting quality.</strong></p>
+<p><br></p>
+<p>For your learning, I would suggest repeating Section 1, or if time is limited using the training and test data previously generated.
+<br></p>
+<p>Please note, during the next installment of this series: Introduction to Machine Learning: Tree-based Models 2, we will be exploring alternative ways to increase prediction accuracy including pruning.</p>
+<hr />

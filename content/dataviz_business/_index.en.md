@@ -1,28 +1,51 @@
 ---
-title: Data Viz for Business
-weight: 10
+title: Data Visualization for Business 1 - An Introduction
+menutitle: Data Visualization for Business 1
+weight: 30
 ---
 
-## Introduction 
+**Level:** Introductory, No Experience Required
 
-First created in December 2020, for the [Office for National Statistics](<https://www.ons.gov.uk/>), for use in their protected learning within the Economic Statistics Group (ESG). The aim of this workshop and teaching resources is to provide a business focused approach to data visualisation within R. This like previous sessions delivered for the [Office for National Statistics](<https://www.ons.gov.uk/>), is focused heavily upon the practical skills of data visualisation without extensive previous knowledge of programming (in R) or data visualisation, achieved through a well structured set of practical exercises. 
+**Keywords:** R, Data Visualisation, Business Data
 
-This session (as of Dec 2020) was aimed to be 90-minutes long, however it is encouraged for participants to continue developing the skills through completing all exercises.  
+**Note:** Please see Prerequisite Section Below
 
 ---
 
-## Session Objectives
+[View Session Slides](</slides/dataviz_business_presentation.html>) - *Opens new Tab*
 
-* To be introduced to the R Universe, in particular the [tidyverse](<https://www.tidyverse.org/>) and [ggplot2](<https://ggplot2.tidyverse.org/>). 
-* To understand the benefits of using different plotting methods (*ggplot2* vs *plot*).
-* To use business data to generate clear data visualisations. 
+[Download Session Files](</zip_content/dataviz_biz_intro.zip>) - *Downloads .zip file*
 
-## Transferable Skills 
+---
 
-* Basic introduction to the use of R and the [tidyverse](<https://www.tidyverse.org/>).
-* Basic visualisation techniques using [ggplot2](<https://ggplot2.tidyverse.org/>).
-* Understanding data visualisation techniques and good practice. 
-* Creative Problem solving and debugging.
+## Session Summary: 
+
+One of the most important elements in statistical communication is through the use of clear data visualisation. In this session we will look more closely at how to construct clear, concise and interpretable data visualisations in R, using the tidyverse package ggplot2. This session will look specifically at providing you with the skills to visualisation your own projects data, and allow you to begin your own journey to improve your data visualisation skills.
+
+*Note:*
+* This session is designed to be open and accessible to all, whether a beginner in R and programming, a new starter in the ONS or someone who simply needs to refresh their skills. Worksheets will be provided are these two different skill levels.
+
+---
+
+## Session Objectives:
+* Understand data visualisation good practices
+* Introduction to the tidyverse & ggplot2 in R
+* Compare plotting techniques in R (ggplot vs plot functions)
+
+
+## Transferable Skills: 
+* Using the tidyverse, in particular ggplot
+* Core and basic ggplot functions
+* Use of layers, aesthetics, and different plot types in data visualisation
+
+
+---
+
+## Prerequisite Knowledge: 
+No experience in Programming is required, however some awareness of programming principles is required.
+
+## Prerequisite Content: 
+Access to R & Rstudio (R’s Graphical User Interface, or RStudio Cloud ([Free Online](<https://rstudio.cloud/>))), Provided ZIP File .zip
 
 ---
 
